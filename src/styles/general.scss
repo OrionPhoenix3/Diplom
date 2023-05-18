@@ -1,0 +1,47 @@
+body {
+  background: #a7acbb;
+  font-family: 'Spartan', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  display: flex;
+  background: #DEEBFB;
+  border-radius: 25px;
+  box-shadow: inset 0 0 3px 2px white;
+  min-height: 100vh;
+}
+
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+  align-items: center;
+}
+
+.column-r {
+  flex-direction: column-reverse;
+}
+
+.space-b {
+  justify-content: space-between;
+}
+
+.center {
+  justify-content: center;
+}
+
+.construct {
+  text-align: center;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+p {
+  margin: 0;
+}

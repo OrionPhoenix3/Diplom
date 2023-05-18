@@ -1,0 +1,890 @@
+@media (max-width: 1300px) {
+  .card {
+    &__img {
+      width: 100%;
+    }
+  }
+  .promotion {
+    &__img {
+      width: 30%;
+    }
+  }
+  .category {
+    &__container {
+      padding: 0 30px;
+      flex: 75%;
+    }
+
+    &__img1 {
+      width: 86%;
+      height: 86%;
+    }
+  
+    &__img2 {
+      width: 100%;
+      height: 86%;
+    }
+  
+    &__img3 {
+      width: 62px;
+      height: 60px;
+    }
+  
+    &__img4 {
+      width: 100%;
+      height: 105%;
+    }
+  
+    &__img5 {
+      width: 100%;
+      height: 105%;
+    }
+  
+    &__img6 {
+      width: 80%;
+      height: 75%;
+    }
+  }
+
+  .basket__img {
+    position: absolute;
+    transform: translate(-31px, -34px);
+    top: 55%;
+    left: 58%;
+    width: 53px;
+}
+
+  .drinks {
+    height: 99px;
+    width: 100px;
+  }
+
+  .donuts{
+    height: 92px;
+    width: 100px;
+  }
+  
+  .burger {
+    width: 133px;
+    height: 120px;
+  }
+
+  .pizza{
+    width: 125px;
+  }
+
+  .panel {
+    right: 45px;
+  }
+  .header {
+    margin: 35px 35px 10px;
+  }
+  .right-panel {
+    margin: 0 45px 0 0;
+  }
+  .img-box {
+    width: 35%;
+  }
+  .basket__menu {
+    width: 25%;
+  }
+  .message__marks {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 1200px) {
+  .category {
+    height: 115px;
+  }
+  .card {
+    padding: 68px 20px 12px;
+  }
+
+  .donuts{
+    transform: translate(4px, -50%);
+  }
+  
+  .burger {
+    width: 106px;
+    height: 95px;
+}
+
+  .right-panel {
+    margin: 0 35px 0 0;
+  }
+  .panel {
+    right: 35px;
+  }
+  .basket__menu {
+    width: 30%;
+    padding: 40px 12px;
+  }
+  .tl-img, .tr-img, .bl-img, .br-img {
+    width: 20%;
+  }
+  .auth {
+    width: 25%;
+  }
+  .cards {
+    height: 300px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .container {
+    margin-right: 35px;
+  }
+  .logo__text {
+    font-size: 46px;
+    line-height: 55px;
+  }
+  .category {
+    height: 100px;
+
+    &__ul {
+      margin: 30px 0;
+    }
+
+    &__link {
+      line-height: 30px;
+    }
+  }
+
+  .drinks{
+    transform: translate(4px, -50%);
+  }
+  
+  .burger {
+    width: 98px;
+  }
+
+  .pizza{
+    transform: translate(4px, -50%);
+  }
+
+  a {
+    width: 155px;
+  }
+
+  .delivery {
+    width: 155px;
+  }
+  .message__cont {
+    padding: 2px 5px;
+  }
+  .promotion {
+    &__img {
+      right: -3%;
+    }
+  }
+  .logo {
+    &__text {
+      font-size: 44px;
+      line-height: 50px;
+    }
+
+    &__img {
+      bottom: -5px;
+      width: 60px;
+      left: 235px;
+    }
+  }
+  .message__small-img1, .message__small-img2 {
+    width: 20px;
+  }
+  .cards {
+    height: 360px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .category__li:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  .category__img3{
+    width: 75%;
+    height: 61%;
+  }
+
+  .delivery {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  .message__title {
+    font-size: 10px;
+  }
+  .basket__img {
+    position: absolute;
+    transform: translate(-27px, -26px);
+    top: 55%;
+    left: 58%;
+    width: 45px;
+}
+}
+
+@media (max-width: 980px) {
+  .container {
+    margin: 35px;
+  }
+
+  .avatar {
+    margin: 50px auto 40px;
+  }
+  .delivery {
+    margin-right: 30px;
+    margin-left: 30px;
+
+    &__img {
+      top: -105%;
+    }
+  }
+  .promotion__img {
+    width: 28%;
+    right: -2%;
+  }
+  .card {
+    &__btn {
+      padding: 7px;
+    }
+
+    &__img {
+      width: 90%;
+    }
+  }
+  .category {
+    height: 90px;
+
+    &__img {
+      width: 55px;
+    }
+  }
+
+  .drinks{
+    width: 100px;
+    transform: translate(5px, -50%);
+  }
+  
+  .burger {
+    width: 115px;
+    height: 110px;
+    transform: translate(5px, -50%);
+  }
+
+  .pizza{
+    width: 100px;
+    transform: translate(5px, -50%);
+  }
+
+  .donuts{
+    width: 100px;
+    transform: translate(5px, -50%);
+  }
+
+  .auth {
+    width: 30%;
+  }
+  .cards {
+    height: 370px;
+  }
+}
+
+@media (max-width: 780px) {
+  .messages {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+    column-gap: 10px;
+    margin-bottom: 25px;
+  }
+  .message {
+    margin: 0;
+
+    &__container {
+      margin-bottom: 15px;
+    }
+  }
+  .cards {
+    height: 323px;
+  }
+  .promotion {
+    &__img {
+      width: 30%;
+      right: 0;
+    }
+  }
+  .container {
+    min-height: 795px;
+    height: auto;
+  }
+  .category__img1{
+    width: 84%;
+  }
+
+  .category__img4{
+    margin-bottom: -20px;
+    width: 92px;
+    height: 90px;
+  }
+
+  .category__img5{
+    width: 85%;
+    height: 81%;
+  }
+
+  .category__img6{
+    width: 58%;
+    height: 100%;
+  }
+
+  .home {
+    flex-direction: column;
+  }
+  .right-panel {
+    margin: 0 30px;
+  }
+  .card {
+    &__img {
+      width: 80%;
+    }
+  }
+  .nav__li:not(:last-child) {
+    margin-bottom: 25px;
+  }
+  .delivery {
+    margin: 90px 35px 35px 0;
+
+    &__img {
+      top: -65%;
+    }
+  }
+  .burger-panel {
+    height: 785px;
+  }
+  .panel__img {
+    padding: 13px;
+  }
+  .articles__img {
+    padding: 17px 13px;
+  }
+  .tl-img, .tr-img, .bl-img, .br-img {
+    width: 18%;
+  }
+  .basket__menu {
+    bottom: 35%;
+    width: 40%;
+  }
+  .auth {
+    width: 40%;
+  }
+  .loader {
+    &__logo {
+      font-size: 60px;
+      line-height: 40px;
+    }
+
+    &__text {
+      font-size: 18px;
+      line-height: 0;
+    }
+
+    &__img1 {
+      bottom: -85%;
+      left: -25%;
+      width: 50%;
+    }
+
+    &__img2 {
+      top: -90%;
+      width: 90%;
+    }
+  }
+  .drinks{
+    width: 100px;
+    transform: translate(5px, -50%);
+  }
+  
+  .burger {
+    width: 115px;
+    height: 110px;
+    transform: translate(5px, -50%);
+  }
+
+  .pizza{
+    width: 100px;
+    transform: translate(5px, -50%);
+  }
+
+  .donuts{
+    width: 100px;
+    transform: translate(5px, -50%);
+  }
+}
+
+@media (max-width: 650px) {
+  .card {
+    padding: 50px 20px 12px;
+
+    &__description {
+      margin-bottom: 4px;
+    }
+  }
+  .cards {
+    height: 353px;
+  }
+
+  .category__img4{
+    margin-bottom: -10px;
+    width: 109%;
+    height: 100%;
+  }
+
+  .category__img5{
+    width: 100%;
+    height: 100%;
+  }
+
+  .category__img6{
+    width: 58%;
+    height: 100%;
+  }
+
+  .form {
+    width: 50%;
+    padding: 55px;
+  }
+  .input__input {
+    padding: 10px 13px;
+  }
+  .submit-btn {
+    padding: 10px;
+  }
+  .promotion__img {
+    width: 35%;
+  }
+  .basket {
+    &__menu {
+      bottom: 36%;
+      width: 45%;
+    }
+
+    &__img-box {
+      width: 30%;
+      height: 55px;
+    }
+  }
+  .logo {
+    &__text {
+      font-size: 40px;
+      line-height: 45px;
+      width: 270px;
+    }
+
+    &__img {
+      width: 56px;
+      left: 210px;
+    }
+  }
+  .burger-panel {
+    height: 805px;
+  }
+  .burger {
+    width: 88px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 550px) {
+  .basket {
+    &__menu {
+      width: 50%;
+    }
+
+    &-indicator {
+      font-size: 9px;
+      width: 15px;
+      height: 15px;
+      top: -4px;
+      right: -4px;
+    }
+  }
+  .burger {
+    &-panel {
+      width: 40%;
+      top: 20px;
+      height: 780px;
+    }
+
+    &-btn {
+      width: 38px;
+      height: 28px;
+    }
+  }
+  .container {
+    margin: 20px;
+  }
+  .card {
+    padding: 60px 20px 12px;
+
+    &__img {
+      width: 75%;
+    }
+  }
+  .filter__img {
+    margin-left: 10px;
+    width: 22px;
+  }
+  .filter, .articles {
+    font-size: 22px;
+  }
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  .auth {
+    width: 40%;
+  }
+  .logo {
+    &__text {
+      font-size: 32px;
+      line-height: 40px;
+    }
+
+    &__img {
+      width: 50px;
+      left: 165px;
+    }
+  }
+  .category {
+    height: 75px;
+
+    &__img {
+      width: 40px;
+    }
+
+    &__link {
+      font-size: 16px;
+    }
+  }
+  .promotion__img {
+    width: 45%;
+  }
+  .panel__img {
+    padding: 10px;
+  }
+  .articles__img {
+    padding: 14px 10px;
+  }
+  .form {
+    width: 60%;
+    padding: 35px;
+  }
+  .active-p {
+    left: -40%;
+  }
+  .line {
+    &-top {
+      top: 9px;
+    }
+
+    &-bottom {
+      bottom: 9px;
+    }
+
+    &-center {
+      opacity: 1;
+    }
+  }
+
+  .hr{
+    height: 4px;
+  }
+
+  .active-btn .line {
+    &-top {
+      transform: rotateZ(45deg);
+      top: 17px;
+    }
+
+    &-bottom {
+      transform: rotateZ(-45deg);
+      bottom: 17px;
+    }
+
+    &-center {
+      opacity: 0;
+    }
+  }
+  .drinks{
+    width: 100px;
+  }
+  
+  .burger {
+    width: 115px;
+    height: 110px;
+  }
+
+  .pizza{
+    width: 115px;
+  }
+
+  .donuts{
+    width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    margin: 25px 20px 60px;
+  }
+  .category {
+    padding: 0;
+
+    &__img {
+      width: 36px;
+    }
+
+    &__ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+    }
+
+    &__container {
+      padding: 0 20px;
+    }
+
+    &__img1 {
+      margin-bottom: -14px;
+      width: 88%;
+    }
+
+    &__img2 {
+      margin-bottom: -17px;
+      width: 94px;
+      height: 101px;
+    }
+
+    &__img3 {
+      margin-bottom: -5px;
+      width: 60px;
+      height: 58px;
+    }
+
+    &__img4 {
+      margin-bottom: -30px;
+      width: 88%;
+      height: 190%;
+    }
+  
+    &__img5 {
+      margin-bottom: -20px;
+      width: 70%;
+      height: 105%;
+    }
+  
+    &__img6 {
+      margin-bottom: -13px;
+      width: 60px;
+      height: 108%;
+    }
+  }
+
+  .burger-panel {
+    height: 875px;
+  }
+
+  .messages {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .message__title {
+    font-size: 12px;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0;
+    padding: 40px 0;
+  }
+
+  .card {
+    padding: 15px 40px 15px 110px;
+    margin-bottom: 20px;
+
+    &__img {
+      width: 30%;
+      top: 50%;
+      left: -75%;
+    }
+
+    &__mark {
+      top: 10px;
+      right: 10px;
+    }
+  }
+  .right-panel {
+    margin: 0 20px;
+  }
+  .basket__menu {
+    padding: 35px 11px;
+    width: 95%;
+    bottom: 43%;
+  }
+  .logo {
+    width: 60%;
+    margin: 0 auto;
+  }
+  .panel {
+    top: 120px;
+    width: 84%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .auth {
+    width: 45%;
+  }
+  .form {
+    width: 70%;
+    padding: 30px;
+  }
+  .loader {
+    &__logo {
+      font-size: 50px;
+      line-height: 30px;
+    }
+
+    &__text {
+      font-size: 16px;
+    }
+  }
+  .delivery {
+    margin: auto;
+  }
+
+  .drinks{
+    width: 86px;
+    height: 87px;
+  }
+  
+  .burger {
+    width: 71px;
+    height: 76px;
+  }
+
+  .pizza{
+    width: 82px;
+  }
+
+  .donuts{
+    width: 76px;
+    height: 75px;
+  }
+}
+
+@media (max-width: 380px) {
+
+  .cards {
+    padding: 13px 0;
+  }
+
+  .basket {
+    &__img-box {
+      height: 75px;
+    }
+  }
+  .logo {
+    width: 72%;
+  }
+  .panel {
+    width: 80%;
+  }
+  .category {
+    height: 65px;
+
+    &__img1 {
+      margin-bottom: -13px;
+      width: 60%;
+    }
+
+    &__img2 {
+      margin-bottom: -17px;
+      width: 70%;
+    }
+
+    &__img3 {
+      margin-bottom: -5px;
+      width: 40px;
+      height: 30px;
+    }
+
+    &__img4 {
+      margin-bottom: -22px;
+      width: 73%;
+      height: 190%;
+    }
+  
+    &__img5 {
+      margin-bottom: -17px;
+      width: 63%;
+      height: 100%;
+    }
+  
+    &__img6 {
+      margin-bottom: -10px;
+      width: 49%;
+      height: 80%;
+    }
+  }
+
+  .card__img {
+    transform: translate(22px, -50%);
+  }
+
+  .auth {
+    width: 60%;
+  }
+
+  .loader {
+    &__logo {
+      font-size: 36px;
+      line-height: 12px;
+    }
+
+    &__text {
+      font-size: 10px;
+    }
+
+    &__img1 {
+      bottom: -100%;
+      left: -20%;
+    }
+
+    &__img2 {
+      top: -110%;
+    }
+  }
+
+  .burger-panel {
+    height: 800px;
+    width: 50%;
+  }
+
+  .active-p {
+    left: -50%;
+  }
+  
+  .delivery {
+    margin: 95px auto 0;
+  }
+
+  .burger, .pizza{
+    transform: translate(15px, -50%);
+  }
+  .drinks{
+    transform: translate(22px, -50%);
+  }
+}

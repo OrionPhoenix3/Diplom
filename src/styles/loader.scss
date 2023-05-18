@@ -1,0 +1,126 @@
+.loader {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  margin: auto;
+  text-align: center;
+  pointer-events: none;
+
+  animation-duration: 2000ms;
+  animation-name: hide1;
+  z-index: 2;
+
+  &__logo {
+    top: 30%;
+    left: 40%;
+    position: absolute;
+    font-weight: 800;
+    font-size: 72px;
+    line-height: 65px;
+    color: #000000;
+    animation: opacity 2s ease;
+    animation-fill-mode: forwards;
+    z-index: 1;
+  }
+
+  &__text {
+    top: 45%;
+    left: 37%;
+    position: absolute;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 65px;
+    color: #000000;
+    animation: opacity 2s ease;
+    animation-fill-mode: forwards;
+    z-index: 1;
+  }
+
+  &__img1 {
+    position: absolute;
+    bottom: 20%;
+    left: 25%;
+    z-index: 1;
+    animation: opacity 2s ease;
+    animation-fill-mode: forwards;
+    z-index: 1;
+  }
+
+  &__img2 {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    animation: opacity 2s ease;
+    animation-fill-mode: forwards;
+    z-index: 1;
+  }
+
+  &__div1 {
+    top: -100vh;
+    left: 0;
+    animation-duration: 3s;
+    animation-name: slidein;
+    position: absolute;
+    height: 235.2vh;
+    width: 50%;
+    animation-delay: 2s;
+    z-index: 2;
+  }
+
+  &__div2 {
+    top: -100vh;
+    left: -21vw;
+    animation-duration: 3s;
+    animation-name: slidein2;
+    position: absolute;
+    height: 235.2vh;
+    width: 50%;
+    animation-delay: 2s;
+    z-index: 2;
+  }
+}
+
+@keyframes hide1 {
+  from {
+    background-color: #DEEBFB;
+  }
+  to {
+    background-color: #DEEBFB;
+  }
+}
+
+@keyframes opacity {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slidein {
+  from {
+    background-color: #DEEBFB;
+    margin-left: 50%;
+    width: 100%;
+  }
+
+  to {
+    background-color: #DEEBFB;
+    margin-left: 120%;
+    width: 0%;
+  }
+}
+@keyframes slidein2 {
+  from {
+    background-color: #DEEBFB;
+    margin-right: 50%;
+    width: 100%;
+  }
+
+  to {
+    background-color: #DEEBFB;
+    margin-right: 100%;
+    width: 0%;
+  }
+}

@@ -1,0 +1,160 @@
+.avatar {
+  margin: 85px auto 40px;
+
+  &__img {
+    width: 64px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+  }
+
+  &__container {
+    width: 80px;
+    height: 80px;
+    background: #FFFFFF;
+    border-radius: 15px;
+    position: relative;
+  }
+
+  &__name {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 13px;
+  }
+}
+
+.delivery {
+  position: relative;
+  height: 162px;
+  background: white;
+  margin: 120px 35px 35px;
+  width: 184px;
+  border-radius: 15px;
+
+  &__img {
+    position: absolute;
+    top: -70%;
+  }
+
+  &__link {
+    margin: 12px 26px;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 11px;
+    color: #000000;
+  }
+
+  &__title {
+    margin: 0 26px;
+    width: 90px;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 20px;
+    color: #000000;
+    cursor: default;
+  }
+
+  &__small {
+    cursor: default;
+  }
+
+  &__btn {
+    cursor: pointer;
+  }
+}
+
+.burger {
+  &-btn {
+    position: absolute;
+    top: 0;
+    background: #F3F3F3;
+    height: 40px;
+    width: 50px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px 0;
+    transition: 1s ease;
+  }
+
+  &-panel {
+    position: absolute;
+    top: 35px;
+    z-index: 3;
+    background: #DEEBFB;
+    width: 30%;
+    height: 811px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+
+  &-img {
+    width: 70%;
+  }
+}
+
+.active-p, .disable-p, .disable-btn {
+  transition: 1s ease;
+}
+
+.active-p {
+  left: -30%;
+}
+
+.disable-p {
+  left: 0;
+}
+
+.active-btn {
+  left: 0;
+}
+
+.disable-btn {
+  left: 103%;
+}
+
+.hr {
+  width: 62%;
+  height: 5px;
+  background: #666666;
+  transition: 1s;
+  position: absolute;
+}
+
+.line {
+  &-top {
+    top: 12px;
+  }
+
+  &-bottom {
+    bottom: 12px;
+  }
+
+  &-center {
+    opacity: 1;
+  }
+}
+
+.active-btn .line {
+  &-top {
+    transform: rotateZ(45deg);
+    top: 22px;
+  }
+
+  &-bottom {
+    transform: rotateZ(-45deg);
+    bottom: 22px;
+  }
+
+  &-center {
+    opacity: 0;
+  }
+}
+
+.invisible {
+  display: none;
+}

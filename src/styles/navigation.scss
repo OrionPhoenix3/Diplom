@@ -1,0 +1,44 @@
+.nav__li:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+a {
+  display: flex;
+  align-items: center;
+  width: 184px;
+  text-decoration: none;
+  border-radius: 15px;
+}
+
+.active{
+  &.nav{
+    background: #FF5454;
+  }
+  & .nav__link{
+    color: #FFFFFF;
+  }
+  & .nav__img {
+    background: #DF4545;
+    stroke: white;
+  }
+}
+
+.nav{
+  list-style-type: none;
+  padding: 0;
+  transition: 0.3s;
+  &__img {
+    width: 18px;
+    height: 22px;
+    padding: 11px 15px;
+    border-radius: 15px;
+    background: white;
+    stroke: #909090;
+    transition: 0.3s;
+  }
+  &__link {
+    text-align: center;
+    flex: 75%;
+    color: #909090;
+  }
+}
