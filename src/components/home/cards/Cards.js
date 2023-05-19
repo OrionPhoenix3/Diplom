@@ -14,7 +14,7 @@ const Cards = ({path}) => {
       }
     }
     return (
-        <div className="cards">
+        <div className="cards" >
             {items.map((card) => renderCards(card))}
         </div>
     )

@@ -10,11 +10,15 @@ import burger from "../assets/discount.png"
 const Home = () => {
     const {isShowPanel} = useContext(BasketContext)
     const navigate = useNavigate()
-    
+
     const showLoader = () => {
         if (localStorage.getItem('showLoader') !== null) {
-            document.getElementById("loader-container").classList.remove('invisible')
+            const loaderContainer = document.getElementById("loader-container")
+            loaderContainer.classList.remove('invisible')
             localStorage.removeItem('showLoader')
+            setTimeout(() => {
+                loaderContainer.style.display = 'none'
+            }, 5000)
         } else {
             return null
         }
