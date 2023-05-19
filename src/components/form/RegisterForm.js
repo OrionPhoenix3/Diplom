@@ -38,11 +38,9 @@ const RegisterForm = () => {
                         const user = userCredential.user
                         if (user) {
                             setCurrentUser(user);
-                            navigate("/load");
-                            setTimeout(() => {
-                                navigate("/home");
-                            }, 2000)
+                            navigate("/home");
                             localStorage.setItem("user", JSON.stringify(user.uid));
+                            localStorage.setItem("showLoader", true);
                         }
                     })
             } catch (err){

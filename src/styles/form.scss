@@ -6,7 +6,7 @@ form {
   border-radius: 35px;
   margin: 0 auto;
   height: max-content;
-  width: 35%;
+  width: 25%;
 }
 
 .input {
@@ -21,11 +21,13 @@ form {
   }
 
   &__input {
-    background: #F3F3F3;
+    background-color: #F3F3F3;
     border-radius: 15px;
     border: none;
     padding: 16px 13px;
     margin-top: 5px;
+    color: #CC9696;
+    text-decoration: underline;
   }
 
   &__err {
@@ -84,8 +86,8 @@ form {
 }
 
 .bl-img {
-  bottom: 10px;
-  left: 10px;
+  bottom: 82px;
+  left: 59px;
 }
 
 .br-img {

@@ -36,7 +36,6 @@ const RouterApp = () => {
         <>
             {
                 pathname !== "/" &&
-                pathname !== "/load" &&
                 pathname !== "/login" &&
                 pathname !== "/register" &&
                 <NavPanel/>

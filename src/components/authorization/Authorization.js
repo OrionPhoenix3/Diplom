@@ -21,14 +21,17 @@ const Authorization = () => {
             navigate("/login")
         }
     },[])
-
+    
     return (
         <div className="flex column center" style={{width: "100%"}}>
             <img className="tl-img" src={grapes} alt="img"/>
             <img className="tr-img" src={leaf} alt="img"/>
             <img className="bl-img" src={apple} alt="img"/>
             <img className="br-img" src={orange} alt="img"/>
-            <Logo className={true} text="Welcome To Yelp App"/>
+            <div className="logo-container">
+                <h1 className="logo__text welcome-text">Welcome To</h1>
+                <Logo className={true} text="Yelp App"/>
+            </div>
             <Outlet/>
         </div>
     )

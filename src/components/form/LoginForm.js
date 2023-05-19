@@ -7,7 +7,7 @@ import {AuthContext} from "../../context/AuthContext";
 import app from "../../base";
 import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
 
-const auth = getAuth();
+const auth = getAuth(); 
 
 const LoginForm = () => {
     const {setCurrentUser} = useContext(AuthContext)
@@ -34,10 +34,9 @@ const LoginForm = () => {
                     const user = userCredential.user;
                     if (user) {
                         setCurrentUser(user);
-                        setTimeout(() => {
-                            navigate("/home");
-                        }, 2000)
+                        navigate("/home");
                         localStorage.setItem("user", JSON.stringify(user.uid));
+                        localStorage.setItem("showLoader", true);
                     }
                 }).catch(err => {
                     if (err.message.includes("user")) {

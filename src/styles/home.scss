@@ -35,10 +35,14 @@
   }
 }
 
+.logo-container{
+  margin: 0 auto;
+}
+
 .auth {
   width: 21%;
   &.logo{
-    margin: 20px auto;
+    margin: 0 auto 20px 32px;
   }
 }
 

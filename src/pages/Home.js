@@ -11,11 +11,23 @@ const Home = () => {
     const {isShowPanel} = useContext(BasketContext)
     const navigate = useNavigate()
     
-    useEffect(()=> { navigate("/home/all")},[])
+    const showLoader = () => {
+        if (localStorage.getItem('showLoader') !== null) {
+            document.getElementById("loader-container").classList.remove('invisible')
+            localStorage.removeItem('showLoader')
+        } else {
+            return null
+        }
+    }
+
+    useEffect(()=> { 
+        navigate("/home/all")
+        showLoader()
+    },[])
     
     return (
         <div className="container">
-            <div className="loader"> 
+            <div id="loader-container" className="loader invisible"> 
                 <h1 className="loader__logo"  >
                     Yelp App
                 </h1>
@@ -24,13 +36,9 @@ const Home = () => {
                 </span>
                 <img src={grapes} alt="img" className="loader__img1" />
                 <img src={burger} alt="img" className="loader__img2" />
-                
-            
             <div className="loader__div1"></div>
             <div className="loader__div2"></div>
             </div>
-            
-           
             <HomeHeader/>
             <Categories/>
             {isShowPanel && <BasketMenu/>}

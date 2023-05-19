@@ -14,7 +14,6 @@ const NavPanel = () => {
 
     if (isBurger && isActive){
         document.addEventListener("click", (e)=>{
-            document.getElementById('navPanelContainer').classList.remove('invisible');
             const withinBoundaries = e.composedPath().includes(div);
 
             if ( ! withinBoundaries ) {
@@ -28,19 +27,26 @@ const NavPanel = () => {
     }
 
     useEffect(() => {
+        const navPanelContainer = document.getElementById('navPanelContainer');
         if (width <= 980) {
-
             setIsBurger(true)
         } else {
             setIsBurger(false)
         }
-        setTimeout(() => {
-            document.getElementById('navPanelContainer').classList.remove('invisible');
-        }, 2200)
+
+        if (localStorage.getItem('showLoader') !== null) {
+            navPanelContainer.classList.add('invisible');
+            setTimeout(() => {
+                navPanelContainer.classList.remove('invisible');
+            }, 2200)
+        }
+        else if (localStorage.getItem('showLoader') == null && !navPanelContainer.classList.contains('invisible')){
+            navPanelContainer.classList.remove('invisible');
+        }
     }, [width])
 
     return (
-        <div id="navPanelContainer" className={`flex column ${isBurger && "burger-panel"} ${!isActive ? "active-p" : "disable-p"} invisible`}>
+        <div id="navPanelContainer" className={`flex column ${isBurger && "burger-panel"} ${!isActive ? "active-p" : "disable-p"}`}>
             {isBurger && <BurgerBtn onClick={handleClick} isActive={isActive}/>}
             <div className="avatar flex column">
                 <div className="avatar__container">
