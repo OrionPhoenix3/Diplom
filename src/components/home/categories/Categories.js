@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import {useLocation} from "react-router";
 import CategoryBtn from "./CategoryBtn";
 import Comments from "../comments/Comments";

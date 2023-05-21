@@ -1,11 +1,11 @@
-import React, {useContext, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import add from "../../../assets/card/plus.svg"
 import select from "../../../assets/card/select.svg"
-import {BasketContext} from "../../../context/BasketContext";
+import { useBasketContext } from "../../../hooks/useBasketContext";
 
 const Card = ({img, title, description, price, mark, markBg, styles}) => {
     const [addToBasket, setAddToBasket] = useState(false);
-    const {cards, addCard, isEmpty, deleteCard} = useContext(BasketContext);
+    const {cards, addCard, isEmpty, deleteCard} = useBasketContext();
 
     useEffect(() => {
         if (isEmpty) {
@@ -40,10 +40,10 @@ const Card = ({img, title, description, price, mark, markBg, styles}) => {
             <div className="card__add">
                 <span className="card__price">${price}</span>
                 <img className="card__btn"
-                     style={addToBasket ? {background: "white"} : undefined}
-                     src={!addToBasket ? add : select}
-                     alt="add"
-                     onClick={handleClick}
+                    style={addToBasket ? {background: "white"} : undefined}
+                    src={!addToBasket ? add : select}
+                    alt="add"
+                    onClick={handleClick}
                 />
             </div>
         </div>

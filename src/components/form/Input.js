@@ -1,5 +1,3 @@
-import React from "react";
-
 const Input = ({name, type, placeholder, value, onChange, onBlur, touched, errors}) => {
     return(
         <>

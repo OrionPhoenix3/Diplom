@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import {useContext, useState} from "react";
 import Input from "./Input";
 import {useFormik} from "formik";
 import * as Yup from "yup";
@@ -7,10 +7,12 @@ import {AuthContext} from "../../context/AuthContext";
 import app from "../../base";
 import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
 
-const auth = getAuth(); 
+
+const auth = getAuth(app); 
 
 const LoginForm = () => {
     const {setCurrentUser} = useContext(AuthContext)
+    const [error, setError] = useState({login: null, password: null})
     const navigate = useNavigate();
 
     const {handleSubmit, handleChange, values, errors, touched, handleBlur} = useFormik({
@@ -35,15 +37,15 @@ const LoginForm = () => {
                     if (user) {
                         setCurrentUser(user);
                         navigate("/home");
-                        localStorage.setItem("user", JSON.stringify(user.uid));
-                        localStorage.setItem("showLoader", true);
+                        localStorage.setItem("user", JSON.stringify(user.uid))
+                        localStorage.setItem("showLoader", true)
                     }
                 }).catch(err => {
-                    if (err.message.includes("user")) {
-                        errors.login = "User not found"
+                    if (err.message === "auth/invalid-email" || err.message === "auth/user-not-found") {
+                        setError({login: "User not found", ...password}) 
                     }
-                    if (err.message.includes("password")) {
-                        errors.password = "Password invalid"
+                    if (err.message === "auth/invalid-password") {
+                        setError({...login, password: "Password is invalid"})  
                     }
                 })
         }
@@ -58,7 +60,7 @@ const LoginForm = () => {
                    onChange={handleChange}
                    onBlur={handleBlur}
                    touched={touched.login}
-                   errors={errors.login}
+                   errors={error.login}
             />
             <Input name="password"
                    type="password"
@@ -67,7 +69,7 @@ const LoginForm = () => {
                    onChange={handleChange}
                    onBlur={handleBlur}
                    touched={touched.password}
-                   errors={errors.password}
+                   errors={error.password}
             />
             <button className="submit-btn" type="submit">Submit</button>
             <span className="register-btn" onClick={() => navigate("/register")}>dont have an account</span>

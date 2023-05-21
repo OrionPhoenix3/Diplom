@@ -1,12 +1,13 @@
-import React, {useContext} from "react";
+import {useContext} from "react";
 import Input from "./Input";
 import {useFormik} from "formik";
 import {useNavigate} from "react-router";
 import * as Yup from "yup";
 import {getAuth, createUserWithEmailAndPassword} from "firebase/auth"
-
 import app from "../../base";
 import {AuthContext} from "../../context/AuthContext";
+
+
 const auth = getAuth();
 
 const RegisterForm = () => {
@@ -39,8 +40,8 @@ const RegisterForm = () => {
                         if (user) {
                             setCurrentUser(user);
                             navigate("/home");
-                            localStorage.setItem("user", JSON.stringify(user.uid));
-                            localStorage.setItem("showLoader", true);
+                            localStorage.setItem("user", JSON.stringify(user.uid))
+                            localStorage.setItem("showLoader", true)
                         }
                     })
             } catch (err){

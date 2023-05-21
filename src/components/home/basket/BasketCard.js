@@ -1,11 +1,10 @@
-import React, {useContext} from "react";
-import {BasketContext} from "../../../context/BasketContext";
+import { useBasketContext } from "../../../hooks/useBasketContext";
 import plus from "../../../assets/card/basket_plus.svg"
 import minus from "../../../assets/card/basket_minus.svg"
 
 const BasketCard = (props) => {
     const {img, title, description, price, count} = props
-    const {countPlus, countMinus, deleteCard} = useContext(BasketContext);
+    const {countPlus, countMinus, deleteCard} = useBasketContext();
 
     return (
         <div className="basket-card flex">

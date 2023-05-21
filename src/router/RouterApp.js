@@ -12,13 +12,22 @@ import PrivateRoute from "./PrivateRoute'";
 import {AuthContext} from "../context/AuthContext";
 import LoginForm from "../components/form/LoginForm";
 import RegisterForm from "../components/form/RegisterForm";
+import {LOCAL_STORAGE_USER} from '../utils/utils'
 
+const Layout = ({children}) => {
+    return (
+        <>
+            <NavPanel></NavPanel>
+            {children}
+        </>
+    )
+}
 
 const RouterApp = () => {
     const {pathname} = useLocation();
     const navigate = useNavigate()
     const {setCurrentUser} = useContext(AuthContext);
-    const user = JSON.parse(localStorage.getItem("user"));
+    const user = JSON.parse(LOCAL_STORAGE_USER);
 
     useEffect(() => {
         if (user) {
@@ -34,42 +43,46 @@ const RouterApp = () => {
 
     return (
         <>
-            {
-                pathname !== "/" &&
-                pathname !== "/login" &&
-                pathname !== "/register" &&
-                <NavPanel/>
-            }
             <Routes>
                 <Route path="/" element={<Authorization/>}>
                     <Route path="login" element={<LoginForm/>}/>
                     <Route path="register" element={<RegisterForm/>}/>
                 </Route>
-                <Route path="/home"
+                
+                <Route path="home"
                        element={
+                        <Layout>
                            <PrivateRoute>
                                <Home/>
                            </PrivateRoute>
+                        </Layout>
                        }>
                     <Route path=":categoryId" element={<Categories/>}/>
                 </Route>
-                <Route path="/menu"
+                
+                <Route path="menu"
                        element={
+                        <Layout>
                            <PrivateRoute>
                                <Menu/>
                            </PrivateRoute>
+                        </Layout>
                        }/>
-                <Route path="/trending"
+                <Route path="trending"
                        element={
+                        <Layout>
                            <PrivateRoute>
                                <Trending/>
                            </PrivateRoute>
+                        </Layout>
                        }/>
                 <Route path="/settings"
                        element={
+                        <Layout>
                            <PrivateRoute>
                                <Settings/>
                            </PrivateRoute>
+                        </Layout>
                        }/>
                 <Route path="*" element={<Navigate to="/"/>}/>
             </Routes>
@@ -77,4 +90,4 @@ const RouterApp = () => {
     )
 }
 
-export default RouterApp
+export default React.memo(RouterApp)

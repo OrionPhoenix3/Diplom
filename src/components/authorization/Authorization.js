@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import {useEffect} from "react";
 import Logo from "../home/Logo";
 import apple from "../../assets/decoration/apple.png";
 import grapes from "../../assets/decoration/grapes.png";
@@ -23,14 +23,14 @@ const Authorization = () => {
     },[])
     
     return (
-        <div className="flex column center" style={{width: "100%"}}>
+        <div id="authorization-div" className="flex column center">
             <img className="tl-img" src={grapes} alt="img"/>
             <img className="tr-img" src={leaf} alt="img"/>
             <img className="bl-img" src={apple} alt="img"/>
             <img className="br-img" src={orange} alt="img"/>
             <div className="logo-container">
-                <h1 className="logo__text welcome-text">Welcome To</h1>
-                <Logo className={true} text="Yelp App"/>
+                <h1 className="logo__text">Welcome To</h1>
+                <Logo isItAuth={true} text="Yelp App"/>
             </div>
             <Outlet/>
         </div>

@@ -1,16 +1,13 @@
-import React, {useContext} from "react";
 import basket from "../../../assets/navigation/basket.svg";
-import {BasketContext} from "../../../context/BasketContext";
+import { useBasketContext } from "../../../hooks/useBasketContext";
 
 const Basket = () => {
-    const {isEmpty, showPanel, basketCounter} = useContext(BasketContext)
+    const {isEmpty, showPanel, basketCounter} = useBasketContext()
     return (
-        <>
-            <div style={{display: "inline-block", position: "relative"}}>
+        <div className='basket-div'>
                 <img src={basket} alt="basket" onClick={showPanel} className="panel__img basket"/>
                 {!isEmpty && <span className="basket-indicator">{basketCounter}</span>}
-            </div>
-        </>
+        </div>
     )
 }
 

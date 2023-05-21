@@ -1,4 +1,3 @@
-import React, {useState} from "react";
 import Card from "./Card";
 import { items } from "./items";
 
@@ -13,8 +12,9 @@ const Cards = ({path}) => {
               break;
       }
     }
+
     return (
-        <div className="cards" >
+        <div className="cards">
             {items.map((card) => renderCards(card))}
         </div>
     )

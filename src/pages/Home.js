@@ -1,18 +1,20 @@
-import React, {useContext, useEffect} from "react";
+import {useEffect} from "react";
 import HomeHeader from "../components/home/HomeHeader";
 import Categories from "../components/home/categories/Categories";
 import {useNavigate} from "react-router";
-import {BasketContext} from "../context/BasketContext";
+import { useBasketContext } from "../hooks/useBasketContext";
 import BasketMenu from "../components/home/basket/BasketMenu";
 import grapes from "../assets/decoration/grapes.png"
 import burger from "../assets/discount.png"
+import { LOCAL_STORAGE_LOADER }  from "../utils/utils";
 
 const Home = () => {
-    const {isShowPanel} = useContext(BasketContext)
+    const {isShowPanel} = useBasketContext()
     const navigate = useNavigate()
 
+
     const showLoader = () => {
-        if (localStorage.getItem('showLoader') !== null) {
+        if (localStorage.getItem("showLoader") !== null) {
             const loaderContainer = document.getElementById("loader-container")
             loaderContainer.classList.remove('invisible')
             localStorage.removeItem('showLoader')

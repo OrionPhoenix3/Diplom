@@ -1,4 +1,3 @@
-import React from "react";
 import avatar from "../../../assets/avatar.png";
 import like from "../../../assets/like.png";
 

@@ -1,11 +1,10 @@
-import React, {useContext} from "react";
-import {BasketContext} from "../../../context/BasketContext";
+import { useBasketContext } from "../../../hooks/useBasketContext";
 import BasketCard from "./BasketCard";
 import arrow from "../../../assets/navigation/arrow.svg";
 import process from "../../../assets/process.png"
 
 const CleanBasket = () => {
-    const {setIsShowPanel} = useContext(BasketContext);
+    const {setIsShowPanel} = useBasketContext();
     return (
         <div className="flex column">
             <img className="process__img" src={process} alt="process-img"/>
@@ -16,7 +15,7 @@ const CleanBasket = () => {
 }
 
 const BasketMenu = () => {
-    const {cards, hidePanel, clearBasket, isEmpty} = useContext(BasketContext);
+    const {cards, hidePanel, clearBasket, isEmpty} = useBasketContext();
     const sumAllPositions = () => {
         let sum = 0;
         cards.forEach((card) => {

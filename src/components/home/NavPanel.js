@@ -1,26 +1,16 @@
-import React, {useEffect, useState} from "react";
-import Navigation from "../../router/Navigation";
+import {useEffect, useState} from "react";
+import Navigation from "../Navigation";
 import avatar from "../../assets/avatar.png";
 import delivery from "../../assets/delivery.png";
 import arrow from "../../assets/navigation/arrow.svg";
-import useWindowDimensions from "../Resize";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 import BurgerBtn from "../BurgerBtn";
+import {LOCAL_STORAGE_LOADER} from "../../utils/utils";
 
 const NavPanel = () => {
     const [isBurger, setIsBurger] = useState(false)
     const [isActive, setIsActive] = useState(false)
     const {width} = useWindowDimensions()
-    const div = document.querySelector(".burger-panel");
-
-    if (isBurger && isActive){
-        document.addEventListener("click", (e)=>{
-            const withinBoundaries = e.composedPath().includes(div);
-
-            if ( ! withinBoundaries ) {
-                setIsActive(!isActive)
-            }
-        })
-    }
 
     const handleClick = () => {
         setIsActive(!isActive);
@@ -32,15 +22,15 @@ const NavPanel = () => {
             setIsBurger(true)
         } else {
             setIsBurger(false)
-        }
+        } 
 
-        if (localStorage.getItem('showLoader') !== null) {
+        if (localStorage.getItem("showLoader") !== null) {
             navPanelContainer.classList.add('invisible');
             setTimeout(() => {
                 navPanelContainer.classList.remove('invisible');
             }, 2200)
         }
-        else if (localStorage.getItem('showLoader') == null && !navPanelContainer.classList.contains('invisible')){
+        else if (localStorage.getItem("showLoader") == null && !navPanelContainer.classList.contains('invisible')){
             navPanelContainer.classList.remove('invisible');
         }
     }, [width])

@@ -1,4 +1,3 @@
-import React from "react";
 import chicken from "../../../assets/articles/grilled-chicken.svg"
 import smile from "../../../assets/articles/smile2.svg"
 import cookie from "../../../assets/articles/cookie.svg"

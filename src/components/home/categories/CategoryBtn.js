@@ -1,8 +1,8 @@
-import React from "react";
 import {NavLink} from "react-router-dom";
 
 const CategoryBtn = ({img, title, path, id, setFilterName}) => {
     const cardsContainer = document.querySelector('.cards')
+    
     return(
         <li className="category__li" onClick={()=> {
             cardsContainer.scrollTo({

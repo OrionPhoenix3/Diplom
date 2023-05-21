@@ -1,10 +1,10 @@
-import React from "react";
-import Li from "../components/home/Li";
+import Li from "./home/Li";
 import {ReactComponent as HomeImg} from "../assets/menus/home.svg"
 import {ReactComponent as MenuImg} from "../assets/menus/menu.svg"
 import {ReactComponent as TrendingImg} from "../assets/menus/trending.svg"
 import {ReactComponent as SettingImg} from "../assets/menus/setting.svg"
 import {useLocation} from "react-router";
+import { useState } from "react";
 
 const links = [
     {
@@ -34,34 +34,18 @@ const links = [
 ]
 
 const Navigation = () => {
-    const {pathname} = useLocation()
 
-    const home = (path) => {
+    const isPathHome = ({path}) => {
         if (path === "/home") {
-            switch (pathname) {
-                case "/home":
-                    return true;
-                case "/home/all":
-                    return true;
-                case "/home/burger":
-                    return true;
-                case "/home/pizza":
-                    return true;
-                case "/home/salads":
-                    return true;
-                case "/home/donuts":
-                    return true;
-                case "/home/drinks":
-                    return true;
-                default:
-                    return false;
-            }
+            return true;   
+        } else {
+            return false;
         }
     }
 
     return (
         <ul className="nav">
-            {links.map((link) => <Li key={link.id} isActive={home(link.path)} {...link}/>)}
+            {links.map((link) => <Li key={link.id} isActive={isPathHome(link.path)} {...link}/>)}
         </ul>
     )
 }
