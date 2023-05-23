@@ -1,25 +1,25 @@
-import {useEffect} from "react";
+import { useEffect, useState } from "react";
 import HomeHeader from "../components/home/HomeHeader";
 import Categories from "../components/home/categories/Categories";
-import {useNavigate} from "react-router";
+import { useNavigate } from "react-router";
+import { useAuthContext } from "../hooks/useAuthContext";
 import { useBasketContext } from "../hooks/useBasketContext";
 import BasketMenu from "../components/home/basket/BasketMenu";
 import grapes from "../assets/decoration/grapes.png"
 import burger from "../assets/discount.png"
-import { LOCAL_STORAGE_LOADER }  from "../utils/utils";
 
 const Home = () => {
+    const {showLoader, setShowLoader} = useAuthContext()
     const {isShowPanel} = useBasketContext()
+    const [isInvisible, setIsInvisible] = useState(true)
     const navigate = useNavigate()
-
-
-    const showLoader = () => {
-        if (localStorage.getItem("showLoader") !== null) {
-            const loaderContainer = document.getElementById("loader-container")
-            loaderContainer.classList.remove('invisible')
-            localStorage.removeItem('showLoader')
+    
+    const toggleLoader = () => {
+        if (showLoader === true) {
+            setIsInvisible(false)
+            setShowLoader(false)
             setTimeout(() => {
-                loaderContainer.style.display = 'none'
+                setIsInvisible(true)
             }, 5000)
         } else {
             return null
@@ -28,13 +28,13 @@ const Home = () => {
 
     useEffect(()=> { 
         navigate("/home/all")
-        showLoader()
+        toggleLoader()
     },[])
     
     return (
         <div className="container">
-            <div id="loader-container" className="loader invisible"> 
-                <h1 className="loader__logo"  >
+            <div id="loader-container" className={`loader ${isInvisible && 'invisible'}`}> 
+                <h1 className="loader__logo">
                     Yelp App
                 </h1>
                 <span className="loader__text"  >
@@ -42,8 +42,8 @@ const Home = () => {
                 </span>
                 <img src={grapes} alt="img" className="loader__img1" />
                 <img src={burger} alt="img" className="loader__img2" />
-            <div className="loader__div1"></div>
-            <div className="loader__div2"></div>
+                <div className="loader__div1"></div>
+                <div className="loader__div2"></div>
             </div>
             <HomeHeader/>
             <Categories/>

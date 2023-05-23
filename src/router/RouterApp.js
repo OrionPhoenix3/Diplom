@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from "react";
+import {useContext, useEffect, memo} from "react";
 import {Route} from "react-router-dom";
 import Home from "../pages/Home";
 import NavPanel from "../components/home/NavPanel";
@@ -7,12 +7,11 @@ import Trending from "../pages/Trending";
 import Settings from "../pages/Settings";
 import Categories from "../components/home/categories/Categories";
 import {Navigate, Routes, useLocation, useNavigate} from "react-router";
-import Authorization from "../components/authorization/Authorization";
 import PrivateRoute from "./PrivateRoute'";
 import {AuthContext} from "../context/AuthContext";
 import LoginForm from "../components/form/LoginForm";
 import RegisterForm from "../components/form/RegisterForm";
-import {LOCAL_STORAGE_USER} from '../utils/utils'
+import {LOCAL_STORAGE_USER} from '../utils/localStorageUtils'
 
 const Layout = ({children}) => {
     return (
@@ -37,18 +36,18 @@ const RouterApp = () => {
             } else {
                 navigate(pathname)
             }
-        }
+        } 
     }, [])
 
 
     return (
         <>
             <Routes>
-                <Route path="/" element={<Authorization/>}>
-                    <Route path="login" element={<LoginForm/>}/>
-                    <Route path="register" element={<RegisterForm/>}/>
-                </Route>
-                
+                <Route path="/" element={<LoginForm/>}/>
+                <Route path="login" element={<LoginForm/>}/>
+                <Route path="register" element={<RegisterForm/>}/>
+
+    
                 <Route path="home"
                        element={
                         <Layout>
@@ -90,4 +89,4 @@ const RouterApp = () => {
     )
 }
 
-export default React.memo(RouterApp)
+export default memo(RouterApp)

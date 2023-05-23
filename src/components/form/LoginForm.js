@@ -1,21 +1,22 @@
-import {useContext, useState} from "react";
+import { useState } from "react";
+import { useAuthContext } from "../../hooks/useAuthContext";
 import Input from "./Input";
-import {useFormik} from "formik";
+import { useFormik } from "formik";
 import * as Yup from "yup";
 import {useNavigate} from "react-router";
-import {AuthContext} from "../../context/AuthContext";
 import app from "../../base";
-import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
-
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { localStorageUserCreate as userCreate } from "../../utils/localStorageUtils";
+import { withAuthorization } from "../../HOCs/withAuthorization";
 
 const auth = getAuth(app); 
 
-const LoginForm = () => {
-    const {setCurrentUser} = useContext(AuthContext)
+const Login = () => {
+    const {setCurrentUser, setShowLoader} = useAuthContext()
     const [error, setError] = useState({login: null, password: null})
     const navigate = useNavigate();
 
-    const {handleSubmit, handleChange, values, errors, touched, handleBlur} = useFormik({
+    const {handleSubmit, handleChange, values, errors, touched, handleBlur, setStatus, status} = useFormik({
         initialValues: {
             login: "",
             password: "",
@@ -36,18 +37,27 @@ const LoginForm = () => {
                     const user = userCredential.user;
                     if (user) {
                         setCurrentUser(user);
+                        setShowLoader(true);
                         navigate("/home");
-                        localStorage.setItem("user", JSON.stringify(user.uid))
-                        localStorage.setItem("showLoader", true)
+                        userCreate(JSON.stringify(user.uid));
                     }
                 }).catch(err => {
-                    if (err.message === "auth/invalid-email" || err.message === "auth/user-not-found") {
-                        setError({login: "User not found", ...password}) 
+
+                    if (err.message.includes("user")) {
+                        setStatus({login: "User not found"})
                     }
-                    if (err.message === "auth/invalid-password") {
-                        setError({...login, password: "Password is invalid"})  
+                    if (err.message.includes("password")) {
+                        setStatus({password: "Password not found"})
                     }
                 })
+                //     if (err.message === "auth/invalid-email" || err.message === "auth/user-not-found") {
+                //         // setError({login: "User not found", ...password})
+                //         setStatus({login: "User not found"})
+                //     }
+                //     if (err.message === "auth/invalid-password") {
+                //         // setError({...login, password: "Password is invalid"})  
+                //     }
+                // })
         }
     })
 
@@ -62,6 +72,7 @@ const LoginForm = () => {
                    touched={touched.login}
                    errors={error.login}
             />
+            {status ? <p>{status.login}</p>: <></>}
             <Input name="password"
                    type="password"
                    placeholder="Password"
@@ -76,4 +87,7 @@ const LoginForm = () => {
         </form>
     )
 }
+
+const LoginForm = withAuthorization(Login) 
+
 export default LoginForm

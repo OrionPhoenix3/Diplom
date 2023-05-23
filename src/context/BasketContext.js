@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, createContext, useState} from "react";
 
-export const BasketContext = React.createContext();
+export const BasketContext = createContext();
 
 export const BasketProvider = (props) => {
     const [cards, setCards] = useState([]);

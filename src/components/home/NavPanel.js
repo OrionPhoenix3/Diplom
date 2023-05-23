@@ -5,38 +5,35 @@ import delivery from "../../assets/delivery.png";
 import arrow from "../../assets/navigation/arrow.svg";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import BurgerBtn from "../BurgerBtn";
-import {LOCAL_STORAGE_LOADER} from "../../utils/utils";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 const NavPanel = () => {
     const [isBurger, setIsBurger] = useState(false)
     const [isActive, setIsActive] = useState(false)
+    const [isInvisible, setIsInvisible] = useState(false)
     const {width} = useWindowDimensions()
+    const {showLoader} = useAuthContext()
 
     const handleClick = () => {
         setIsActive(!isActive);
     }
 
     useEffect(() => {
-        const navPanelContainer = document.getElementById('navPanelContainer');
         if (width <= 980) {
             setIsBurger(true)
         } else {
             setIsBurger(false)
         } 
-
-        if (localStorage.getItem("showLoader") !== null) {
-            navPanelContainer.classList.add('invisible');
+        if (showLoader === true) {
+            setIsInvisible(true);
             setTimeout(() => {
-                navPanelContainer.classList.remove('invisible');
+                setIsInvisible(false);
             }, 2200)
-        }
-        else if (localStorage.getItem("showLoader") == null && !navPanelContainer.classList.contains('invisible')){
-            navPanelContainer.classList.remove('invisible');
         }
     }, [width])
 
     return (
-        <div id="navPanelContainer" className={`flex column ${isBurger && "burger-panel"} ${!isActive ? "active-p" : "disable-p"}`}>
+        <div id="navPanelContainer" className={`flex column ${isBurger && "burger-panel"} ${!isActive ? "active-p" : "disable-p"} ${isInvisible && 'invisible'}`}>
             {isBurger && <BurgerBtn onClick={handleClick} isActive={isActive}/>}
             <div className="avatar flex column">
                 <div className="avatar__container">

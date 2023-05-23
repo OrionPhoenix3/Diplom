@@ -1,17 +1,17 @@
-import {useContext} from "react";
 import Input from "./Input";
 import {useFormik} from "formik";
 import {useNavigate} from "react-router";
 import * as Yup from "yup";
 import {getAuth, createUserWithEmailAndPassword} from "firebase/auth"
 import app from "../../base";
-import {AuthContext} from "../../context/AuthContext";
+import { useAuthContext } from "../../hooks/useAuthContext";
+import { localStorageUserCreate as userCreate } from "../../utils/localStorageUtils";
+import { withAuthorization } from "../../HOCs/withAuthorization";
 
+const auth = getAuth(app);
 
-const auth = getAuth();
-
-const RegisterForm = () => {
-    const {setCurrentUser} = useContext(AuthContext)
+const Register = () => {
+    const {setCurrentUser, setShowLoader} = useAuthContext()
     const navigate = useNavigate()
     const {handleSubmit, handleChange, values, errors, touched, handleBlur} = useFormik({
         initialValues: {
@@ -39,9 +39,9 @@ const RegisterForm = () => {
                         const user = userCredential.user
                         if (user) {
                             setCurrentUser(user);
+                            setShowLoader(true);
                             navigate("/home");
-                            localStorage.setItem("user", JSON.stringify(user.uid))
-                            localStorage.setItem("showLoader", true)
+                            userCreate(JSON.stringify(user.uid));
                         }
                     })
             } catch (err){
@@ -83,4 +83,7 @@ const RegisterForm = () => {
         </form>
     )
 }
+
+const RegisterForm = withAuthorization(Register)
+
 export default RegisterForm

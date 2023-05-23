@@ -3,13 +3,13 @@ import exit from "../../assets/navigation/exit.svg"
 import Basket from "./basket/Basket";
 import Logo from "./Logo";
 import { useNavigate } from "react-router";
-import { removeLocalStorage} from "../../utils/utils";
+import { localStorageDelete} from "../../utils/localStorageUtils";
 
 const HomeHeader = () => {
     const navigate = useNavigate()
     const signOut = () => {
         navigate("/")
-        removeLocalStorage('user')
+        localStorageDelete('user')
     }
     return (
         <div className="header">
